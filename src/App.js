@@ -43,8 +43,8 @@ const InfoCard = ({ title, value, icon, status }) => {
   return (
     <div
       style={{
-        width: '400px',
-        height: '300px',
+        width: '250px',
+        height: '200px',
         backgroundColor,
         display: 'flex',
         flexDirection: 'column',
@@ -55,16 +55,16 @@ const InfoCard = ({ title, value, icon, status }) => {
         border: '2px solid #FFFFFF',
       }}
     >
-      <div style={{ fontSize: '2rem', marginTop: '1rem' }}>
+      <div style={{ fontSize: '1.5rem', marginTop: '1rem' }}>
         <em>{title}</em>
       </div>
       <div style={{
-        width: '300px',
-        height: '100px',
+        width: '150px',
+        height: '60px',
       }}>
         {!!Icon && (<Icon style={{ width: '100%', height: '100%' }} />)}
       </div>
-      <div style={{ fontWeight: 'bold', fontSize: '2rem', marginBottom: '1rem' }}>
+      <div style={{ fontWeight: 'bold', fontSize: '1.5rem', marginBottom: '1rem' }}>
         {value}
       </div>
     </div>
