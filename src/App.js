@@ -5,7 +5,7 @@ import { Chart } from 'react-charts'
 import * as Icons from 'react-icons/fa';
 import './App.css';
 
-import infoData from './data/index.js';
+import infoData from './data/chart-data.json';
 
 const chartData = [
   {
