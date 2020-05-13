@@ -4,4 +4,4 @@ const issues = data.allIssues;
 
 const issuesWithoutTickets = issues.filter(issue => !issue.ticketUrl).map(issue => issue.issueUrl);
 
-console.log(issuesWithoutTickets);
+console.log(issuesWithoutTickets.length, issuesWithoutTickets);
