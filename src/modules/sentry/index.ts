@@ -5,7 +5,7 @@ import cheerio from 'cheerio';
 import parseLink from 'parse-link-header';
 import { SentryProject, SentryCache, SentryIssue, FetchIssueOptions, SentryRelease } from './types';
 
-export class SentryClient {
+export default class SentryClient {
   private readonly token: string;
   private axios: AxiosInstance;
   private project: SentryProject;

@@ -1,5 +1,6 @@
 
 import scripts from './scripts';
+import getCliArgs from 'command-line-args';
 
 const [ scriptId ] = process.argv.slice(2);
 
@@ -8,12 +9,18 @@ if (scriptId) {
 
   if (script) {
     const { valid, reason } = script.validateScriptRequirements();
+    const args = getCliArgs(script.options, { partial: true, camelCase: true });
 
     if (valid) {
       script
-        .run()
-        .then(console.log)
+        .run(args as any)
+        .then(result => {
+          if (args.showOutput) {
+            console.log(result);
+          }
+        })
         .catch(console.error);
+      
     } else {
       console.log(reason);
     }

@@ -21,6 +21,7 @@ const App: React.FC<Props> = (props: Props) => {
     return <p>ERR: {error}</p>;
   }
 
+  console.log('Debug', rawData);
   const data = Object.entries(rawData.summary.summary) as [any, any];
   const rows = chunk(data, 3);
 

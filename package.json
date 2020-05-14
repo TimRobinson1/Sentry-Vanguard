@@ -13,6 +13,7 @@
     "axios": "^0.19.2",
     "bluebird": "^3.7.2",
     "cheerio": "^1.0.0-rc.3",
+    "command-line-args": "^5.1.1",
     "dotenv": "^8.2.0",
     "lodash": "^4.17.15",
     "moment": "^2.25.3",
@@ -24,7 +25,8 @@
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "typescript": "^3.9.2"
+    "typescript": "^3.9.2",
+    "uuid": "^8.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -51,7 +53,9 @@
   "devDependencies": {
     "@types/bluebird": "^3.5.30",
     "@types/cheerio": "^0.22.18",
+    "@types/command-line-args": "^5.0.0",
     "@types/lodash": "^4.14.150",
-    "@types/parse-link-header": "^1.0.0"
+    "@types/parse-link-header": "^1.0.0",
+    "@types/uuid": "^7.0.3"
   }
 }
