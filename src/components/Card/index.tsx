@@ -6,6 +6,8 @@ type Props = {
   value: string | number;
   icon: string;
   status: string;
+  isClickable: boolean;
+  onClick?: () => void;
 }
 
 const getStatusColor = (status: string) => {
@@ -21,7 +23,7 @@ const getStatusColor = (status: string) => {
   }
 }
 
-const Card = ({ title, value, icon, status }: Props) => {
+const Card = ({ title, value, icon, status, isClickable, onClick = () => {} }: Props) => {
   const Icon = (Icons as any)[icon];
 
   const backgroundColor = getStatusColor(status);
@@ -39,7 +41,9 @@ const Card = ({ title, value, icon, status }: Props) => {
         justifyContent: 'space-between',
         borderRadius: '5px',
         border: '2px solid #FFFFFF',
+        cursor: isClickable ? 'pointer' : 'cursor'
       }}
+      onClick={isClickable ? onClick : () => {}}
     >
       <div style={{ fontSize: '1.5rem', marginTop: '1rem' }}>
         <em>{title}</em>

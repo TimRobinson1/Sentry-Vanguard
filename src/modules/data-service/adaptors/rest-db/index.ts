@@ -56,7 +56,6 @@ export default class RestDBAdaptor implements DataService {
 
   public async get(collection: string, id?: string) {
     const uri = this.getURI(collection, id);
-    console.log('BASE_URL', this.dbUrl, uri)
     const { data } = await this.axios.get(uri);
 
     return data;
