@@ -1,4 +1,4 @@
-# Vanguard
+# Vanguard 🛡
 > A straightforward Sentry reporter for a high-level overview of your Sentry issues.
 
 <img width="762" alt="Screenshot 2020-06-10 at 10 36 57 am" src="https://user-images.githubusercontent.com/24386407/84252329-5d330680-ab06-11ea-97cc-458439644db0.png">
