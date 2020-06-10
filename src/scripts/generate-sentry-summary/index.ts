@@ -1,11 +1,11 @@
 import moment from 'moment';
 import dotenv from 'dotenv';
+import notional from 'notional';
 import SentryClient from '../../modules/sentry';
 import DataService from '../../modules/data-service';
 import { validateScriptRequirements, createSummarySection } from './helpers';
 import { SummaryType, Options } from './types';
 import Logger from '../utils/logger';
-import { Notional } from '../../modules/notion';
 
 dotenv.config();
 
@@ -45,7 +45,7 @@ async function generateSentrySummary({
     authToken: process.env.REACT_APP_SENTRY_TOKEN,
     ticketHostname: process.env.REACT_APP_SENTRY_TICKET_HOSTNAME
   });
-  const notion = new Notional({
+  const notion = notional({
     apiKey: process.env.REACT_APP_NOTION_API_KEY,
     userId: process.env.REACT_APP_NOTION_USER_ID
   });
@@ -153,12 +153,12 @@ async function generateSentrySummary({
 
   if (saveToNotion) {
     try {
-      const table = await notion.table({
+      const notionTable = await notion.table({
         collectionId: process.env.REACT_APP_NOTION_COLLECTION_ID,
         collectionViewId: process.env.REACT_APP_NOTION_COLLECTION_VIEW_ID,
       });
 
-      await table.insertRows([data.tableUpdate]);
+      await notionTable.insertRows([data.tableUpdate]);
 
       logger.info('Saved to Notion');
     } catch (err) {

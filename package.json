@@ -1,5 +1,5 @@
 {
-  "name": "charts",
+  "name": "sentry-vanguard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,6 +17,7 @@
     "dotenv": "^8.2.0",
     "lodash": "^4.17.15",
     "moment": "^2.25.3",
+    "notional": "^0.1.2",
     "parse-link-header": "^1.0.1",
     "qs": "^6.9.4",
     "react": "^16.13.1",
@@ -36,6 +37,7 @@
     "eject": "react-scripts eject",
     "script": "npx ts-node ./src/scripts/cli/index.ts"
   },
+  "proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": "react-app"
   },
