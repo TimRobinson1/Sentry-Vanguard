@@ -129,21 +129,16 @@ async function generateSentrySummary({
     return obj;
   }, {} as { [k: string]: string | number });
 
-  const data = {
-    ...baseData,
-    // Data for inserting into to Notion table
-    tableUpdate: {
-      ...tabularData,
-      Date: moment().format('YYYY-MM-DD'),
-    },
-    allIssues: issues,
+  const tableData = {
+    ...tabularData,
+    Date: moment().format('YYYY-MM-DD'),
   }
 
   if (saveToDb) {
     try {
       await db.update('issues', process.env.REACT_APP_VANGUARD_ISSUES_ID, {
         date: moment().toISOString(),
-        summary: data,
+        summary: baseData,
       });
       logger.info('Saved to DB');
     } catch (err) {
@@ -158,7 +153,7 @@ async function generateSentrySummary({
         collectionViewId: process.env.REACT_APP_NOTION_COLLECTION_VIEW_ID,
       });
 
-      await notionTable.insertRows([data.tableUpdate]);
+      await notionTable.insertRows([tableData]);
 
       logger.info('Saved to Notion');
     } catch (err) {
@@ -166,7 +161,7 @@ async function generateSentrySummary({
     }
   }
 
-  return data;
+  return baseData;
 }
 
 export default {
