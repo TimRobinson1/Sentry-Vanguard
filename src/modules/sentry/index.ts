@@ -104,7 +104,13 @@ export default class SentryClient {
   }
 
   private coerceReleaseVersionToSemver (releaseName: string) {
-    const [ patch, minor, major ] = releaseName
+    let release = releaseName;
+
+    if (releaseName.includes('+')) {
+      release = release.split('+')[0];
+    }
+
+    const [patch, minor, major] = release
       .split('.')
       .reverse()
       .map(string =>
